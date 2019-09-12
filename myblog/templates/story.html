@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>قصه های کوچک</title>
+  {% include "calendar.html" %}
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet' href='https://unpkg.com/aos@2.3.0/dist/aos.css'>
+
+      <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <br><br>
+  <center>
+<p class="solid" style="background-color:blue">
+  <marquee style="color:blue"><b>به وبلاگ قصه های کوچک خوش آمدید</b></marquee>
+</p>
+</center>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">قصه های کوچک</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">خانه</a></li>
+      <li><a href="Call/">تماس با ما</a></li>
+      <li><a href="/About">درباره ما</a></li>
+    </ul>
+    <form  class="navbar-form navbar-right" action="/action_page.php">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="جستجو" name="search">
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit">
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  </nav>
+{% include "align.html" %}
+  {% include "seens.html" %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet' href='https://unpkg.com/aos@2.3.0/dist/aos.css'>
+      <script src='https://unpkg.com/aos@2.3.0/dist/aos.js'></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 1500px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+  </style>
+</head>
+<body>
+  {% if dastan %}
+      
+  
+  {% for matlab in dastan  %}
+  
+    <div class="col-sm-9">
+      
+
+      <hr>
+      <script  src="{% static 'js/index.js' %}"></script>
+
+<style>
+h5.uppercase {
+    text-transform: uppercase;
+}
+</style>
+  <div class="text" data-aos="fade-up"><h2>{{matlab.title1}}</h2></div>
+  <div class="text" data-aos="fade-up"><h5 class="uppercase"><span class="glyphicon glyphicon-time"></span> Posted by {{matlab.author}}, {{matlab.pub_date}}.</h5></div>
+      <div class="text" data-aos="fade-down"><h5><span class="label label-success">داستانک</span></h5></div><br>
+      <div class="text" data-aos="fade-down"><p>{{matlab.matn|safe}}</p></div>
+      <hr>
+      
+
+      <br><br><div class="link" data-aos="zoom-out"><a href="/comment"><h4>نظر بدهید</h4></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br>
+{%endfor%}
+{% else %}
+<h5>No Post</h5>
+{%endif%}
+</body>
+</html>
